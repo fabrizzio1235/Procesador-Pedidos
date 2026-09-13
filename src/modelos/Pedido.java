@@ -10,24 +10,23 @@ public class Pedido {
     private double descuento;
     private double impuestos;
     private double total;
-    private String estado;
+    private boolean estado;
 
     public Pedido() {}
 
-    public Pedido(String cliente) {
+    public Pedido(String cliente, ArrayList productos) {
         this.cliente = cliente;
-        this.productos = new ArrayList<>();
+        this.productos = productos;
         this.subtotal = 0.0;
         this.descuento = 0.0;
         this.impuestos = 0.0;
         this.total = 0.0;
-        this.estado = ""; // TODO: Por definir
+        this.estado = false;
     }
 
     public void agregarProductos (Producto prod) {
         this.productos.add(prod);
     }
-
 
     public String getCliente() {
         return cliente;
@@ -69,19 +68,17 @@ public class Pedido {
         this.impuestos = impuestos;
     }
 
-    public double getTotal() {
-        return total;
-    }
+    public double getTotal() {return total;}
 
     public void setTotal(double total) {
         this.total = total;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 

@@ -3,13 +3,15 @@ package modelos;
 public class Producto {
     private String nombre;
     private double precio;
+    private int cantidad;
+    private int existencia;
 
-    //TODO: Quisa manejar aquí la cantidad de existencias y cantidad a comprar
 
-
-    public Producto(String nombre, double precio) {
+    public Producto(String nombre, double precio, int cantidad, int existencia) {
         this.nombre = nombre;
         this.precio = precio;
+        this.cantidad = cantidad;
+        this.existencia = existencia;
     }
 
     public double getPrecio() {
@@ -27,4 +29,8 @@ public class Producto {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public int getCantidad() {return cantidad;}
+
+    public int getExistencia() {return existencia;}
 }

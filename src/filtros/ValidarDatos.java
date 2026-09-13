@@ -2,7 +2,7 @@ package filtros;
 
 import modelos.Pedido;
 
-public class ValidarDatos implements Filtro{
+public class ValidarDatos implements Filtro {
     @Override
     public Pedido procesar(Pedido pedido) {
         return null;
