@@ -1,5 +1,5 @@
 import excepciones.DatosInvalidosException;
-import excepciones.PedidoFraudeException;
+
 import filtros.*;
 import modelos.Pedido;
 import modelos.Producto;
@@ -11,7 +11,8 @@ public class ProcesadorPedidos {
     public static void main(String[] args) {
         List <Pedido> pedidos = new ArrayList<>();
 
-        //**CASOS DEFINIDOS
+        //CASOS DEFINIDOS
+
         // Pedido válido
         Pedido pedidoCorrecto = new Pedido("Ana", new ArrayList<>(List.of(
                 new Producto("Teclado", 500, 1, 5),
@@ -66,7 +67,7 @@ public class ProcesadorPedidos {
                     pedido = filtro.procesar(pedido);
                     System.out.println(pedido);
                 }
-            } catch (DatosInvalidosException | PedidoFraudeException e) {
+            } catch (DatosInvalidosException e) {
                 System.out.println(e.getMessage());
                 System.out.println(pedido);
             }
