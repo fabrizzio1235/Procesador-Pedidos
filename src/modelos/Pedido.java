@@ -18,6 +18,10 @@ public class Pedido {
         this.estado = "EN PROCESO";
     }
 
+    public boolean estaEnRevision() {
+        return "EN REVISION".equals(estado);
+    }
+
     public void agregarProductos(Producto prod) {
         this.productos.add(prod);
     }

@@ -6,7 +6,7 @@ import modelos.Pedido;
 public class ValidarDatos implements Filtro {
     @Override
     public Pedido procesar (Pedido pedido) {
-        if (pedido.getCliente().isEmpty()) {
+        if (pedido.getCliente() == null || pedido.getCliente().isEmpty()) {
             pedido.setEstado("RECHAZADO");
             throw new DatosInvalidosException("Error: El pedido no tiene cliente.");
         }
