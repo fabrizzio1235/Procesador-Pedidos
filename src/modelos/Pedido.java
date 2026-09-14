@@ -10,7 +10,7 @@ public class Pedido {
     private double descuento;
     private double impuestos;
     private double total;
-    private boolean estado;
+    private String estado;
 
     public Pedido() {}
 
@@ -21,10 +21,10 @@ public class Pedido {
         this.descuento = 0.0;
         this.impuestos = 0.0;
         this.total = 0.0;
-        this.estado = false;
+        this.estado = null;
     }
 
-    public void agregarProductos (Producto prod) {
+    public void agregarProductos(Producto prod) {
         this.productos.add(prod);
     }
 
@@ -74,11 +74,11 @@ public class Pedido {
         this.total = total;
     }
 
-    public boolean getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
