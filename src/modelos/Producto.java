@@ -3,13 +3,13 @@ package modelos;
 public class Producto {
     private String nombre;
     private double precio;
-    private int cantidad;
+    private int cantidadSolicitada;
     private int existencia;
 
     public Producto(String nombre, double precio, int cantidad, int existencia) {
         this.nombre = nombre;
         this.precio = precio;
-        this.cantidad = cantidad;
+        this.cantidadSolicitada = cantidad;
         this.existencia = existencia;
     }
 
@@ -29,7 +29,7 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getCantidad() {return cantidad;}
+    public int getCantidadSolicitada() {return cantidadSolicitada;}
 
     public int getExistencia() {return existencia;}
 }

@@ -7,11 +7,13 @@ public class ValidarDatos implements Filtro {
     @Override
     public Pedido procesar (Pedido pedido) {
         if (pedido.getCliente().isEmpty()) {
-            throw new DatosInvalidosException("El pedido no tiene cliente.");
+            pedido.setEstado("RECHAZADO");
+            throw new DatosInvalidosException("Error: El pedido no tiene cliente.");
         }
 
         if (pedido.getProductos().isEmpty()) {
-            throw new DatosInvalidosException("El pedido no tiene productos.");
+            pedido.setEstado("RECHAZADO");
+            throw new DatosInvalidosException("Error: El pedido de '" + pedido.getCliente() + "' no tiene productos.");
         }
         return pedido;
     }

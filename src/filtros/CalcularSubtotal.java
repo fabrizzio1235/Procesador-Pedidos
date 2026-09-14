@@ -6,9 +6,11 @@ import modelos.Producto;
 public class CalcularSubtotal implements Filtro {
     @Override
     public Pedido procesar(Pedido pedido) {
+        double costoSubtotal = 0;
         for (Producto productoActual : pedido.getProductos()) {
-            pedido.setSubtotal(productoActual.getCantidad() * productoActual.getPrecio());
+            costoSubtotal += (productoActual.getCantidadSolicitada() * productoActual.getPrecio());
         }
+        pedido.setSubtotal(costoSubtotal);
         return pedido;
     }
 }

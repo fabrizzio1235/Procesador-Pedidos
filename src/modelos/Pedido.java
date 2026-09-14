@@ -1,6 +1,5 @@
 package modelos;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -11,19 +10,12 @@ public class Pedido {
     private double impuestos;
     private double total;
     private String estado;
-    private boolean revisionFraude;
 
-    public Pedido() {}
 
-    public Pedido(String cliente, ArrayList productos) {
+    public Pedido(String cliente, List<Producto> productos) {
         this.cliente = cliente;
         this.productos = productos;
-        this.subtotal = 0.0;
-        this.descuento = 0.0;
-        this.impuestos = 0.0;
-        this.total = 0.0;
         this.estado = "EN PROCESO";
-        this.revisionFraude = false;
     }
 
     public void agregarProductos(Producto prod) {
@@ -84,14 +76,13 @@ public class Pedido {
         this.estado = estado;
     }
 
-    public void setRevisionFraude(boolean revisionFraude) { this.revisionFraude = revisionFraude;}
 
     @Override
     public String toString() {
         return String.format(
-                "Pedido de '%s':\nEstado: '%s'\nSubtotal: $%.2f\nDescuento: $%.2f\n" +
-                        "Impuestos: $%.2f\nTotal: $%.2f\nEstado: '%s'\nCandidato a Revisión: '%B'",
-                cliente, estado, subtotal, descuento, impuestos, total, estado, revisionFraude
+                "Pedido de '%s': { Estado: '%s' | Subtotal: $%.2f | Descuento: $%.2f " +
+                        "Impuestos: $%.2f | Total: $%.2f  }",
+                cliente, estado, subtotal, descuento, impuestos, total
         );
     }
 }
