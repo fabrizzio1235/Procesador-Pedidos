@@ -2,6 +2,11 @@ package filtros;
 
 import modelos.Pedido;
 
+/*
+    Aplica un 10% de descuento sobre el subtotal cuando es mayor o igual a mil. Si el pedido
+    está marcado EN REVISION, no se le aplica descuento y se devuelve sin cambios.
+ */
+
 public class AplicarDescuento implements Filtro {
     @Override
     public Pedido procesar(Pedido pedido) {

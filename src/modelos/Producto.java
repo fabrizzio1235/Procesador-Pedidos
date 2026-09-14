@@ -1,5 +1,10 @@
 package modelos;
 
+/*
+    Representa un producto dentro de un pedido, su precio, cantidad solicitada, existencia
+    disponible.
+ */
+
 public class Producto {
     private String nombre;
     private double precio;

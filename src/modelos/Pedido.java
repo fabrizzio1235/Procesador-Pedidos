@@ -2,6 +2,11 @@ package modelos;
 
 import java.util.List;
 
+/*
+    Representa el pedido. Cada filtro recibre y devuelve la misma instancia,
+    sin conocer qué otros filtros existen.
+ */
+
 public class Pedido {
     private String cliente;
     private List<Producto> productos;
@@ -18,6 +23,9 @@ public class Pedido {
         this.estado = "EN PROCESO";
     }
 
+    /*
+    Indica si el pedido fue marcado por VerificarFraude.
+     */
     public boolean estaEnRevision() {
         return "EN REVISION".equals(estado);
     }

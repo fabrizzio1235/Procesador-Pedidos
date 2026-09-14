@@ -7,6 +7,10 @@ import modelos.Producto;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    Punto de entrada del programa. Construye los pedidos de prueba y define la tubería de filtros.
+ */
+
 public class ProcesadorPedidos {
     public static void main(String[] args) {
         List <Pedido> pedidos = new ArrayList<>();

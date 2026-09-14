@@ -2,6 +2,12 @@ package filtros;
 
 import modelos.Pedido;
 
+/*
+    Calcula el IVA sobre la base (subtotal - descuento) y obtiene el total del pedido,
+    redondeando ambos valores a 2 decimales. Si el pedido está EN REVISIOn, no calcula nada
+    y lo devuelve sin cambios.
+ */
+
 public class CalcularImpuestos implements Filtro {
 
     @Override

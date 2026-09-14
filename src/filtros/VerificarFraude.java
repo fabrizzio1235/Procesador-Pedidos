@@ -2,6 +2,12 @@ package filtros;
 
 import modelos.Pedido;
 
+/*
+    Filtro del reto, insertado entre CalcularSubtotal y AplicarDescuento. Si el subtotal supera
+    los 5,000, marca el pedido como EN REVISION. No lanza excepción, el pedido en revisión no es
+    un error, así que debe de seguir recorriendo el resto de los filtros.
+ */
+
 public class VerificarFraude implements Filtro {
     @Override
     public Pedido procesar(Pedido pedido) {
@@ -11,7 +17,3 @@ public class VerificarFraude implements Filtro {
         return pedido;
     }
 }
-
-//se quita la excepcion porque en la tarea se indica que se debe
-//imprimir el estado del pedido después de cada filtro para poder observar el flujo.
-//para pedidos de fraude lo imcumple, porque nunca llega a los siguientes filtros.
