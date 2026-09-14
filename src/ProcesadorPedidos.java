@@ -7,15 +7,25 @@ import java.util.List;
 
 public class ProcesadorPedidos {
     public static void main(String[] args) {
-|
+
         // Pedido sacado del Colab
-        Pedido pedido1 = new Pedido("Ana", new ArrayList<>(List.of(
+        Pedido pedidoCorrecto = new Pedido("Ana", new ArrayList<>(List.of(
                 new Producto("Teclado", 500, 1, 5),
                 new Producto("Mouse", 250, 2, 10)
         )));
 
-        // TODO: Pedido que prueba el filtro de Fraude (Filtro aún no implementado)
-        // Pedido pedido2 = new Pedido();
+        /* TODO: Pruebas mínimas
+
+            El programa deberá demostrar al menos estos casos:
+
+            - pedido válido;
+            - pedido sin productos;
+            - producto con cantidad superior a la existencia;
+            - pedido con descuento;
+            - pedido sin descuento;
+            - pedido marcado para revisión de fraude. */
+
+        // TODO: Imprimir el estado del pedido después de cada filtro para poder observar el flujo.
 
         List<Filtro> tuberia = List.of(
                 new ValidarDatos(),
@@ -28,7 +38,7 @@ public class ProcesadorPedidos {
         );
 
         for (Filtro filtro : tuberia) {
-            pedido1 = filtro.procesar(pedido1);
+            pedidoCorrecto = filtro.procesar(pedidoCorrecto);
         }
 
     }
