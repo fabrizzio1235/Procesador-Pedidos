@@ -2,25 +2,27 @@ package filtros;
 
 import modelos.Pedido;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /*
     Calcula el IVA sobre la base (subtotal - descuento) y obtiene el total del pedido,
-    redondeando ambos valores a 2 decimales. Si el pedido está EN REVISIOn, no calcula nada
+    redondeando ambos valores a 2 decimales. Si el pedido está EN REVISION, no calcula nada
     y lo devuelve sin cambios.
  */
 
 public class CalcularImpuestos implements Filtro {
+    private static final BigDecimal IVA = new BigDecimal("0.16");
 
     @Override
     public Pedido procesar(Pedido pedido) {
-        //Evita calcular impuestos de un pedido en revisión
-        if (pedido.estaEnRevision()) {
+        if (pedido.estaEnRevision()) { // La operación no se realiza a un pedido en revisión por fraude.
             return pedido;
         }
-        double base = pedido.getSubtotal() - pedido.getDescuento();
-        //Calculamos a dos decimales, la versión anterior trunca los decimales
-        double IVA = 0.16;
-        pedido.setImpuestos(Math.round(base * IVA * 100) / 100.0);
-        pedido.setTotal(Math.round((base + pedido.getImpuestos()) * 100) / 100.0);
+        BigDecimal base = (pedido.getSubtotal().subtract(pedido.getDescuento()));
+
+        pedido.setImpuestos(base.multiply(IVA).setScale(2, RoundingMode.HALF_UP));
+        pedido.setTotal(base.add(pedido.getImpuestos()));
         return pedido;
     }
 }

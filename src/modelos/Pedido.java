@@ -1,5 +1,8 @@
 package modelos;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.List;
 
 /*
@@ -10,10 +13,10 @@ import java.util.List;
 public class Pedido {
     private String cliente;
     private List<Producto> productos;
-    private double subtotal;
-    private double descuento;
-    private double impuestos;
-    private double total;
+    private BigDecimal subtotal = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal descuento = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal impuestos = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
+    private BigDecimal total = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
     private String estado;
 
 
@@ -50,33 +53,33 @@ public class Pedido {
         this.productos = productos;
     }
 
-    public double getSubtotal() {
+    public BigDecimal getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(double subtotal) {
+    public void setSubtotal(BigDecimal subtotal) {
         this.subtotal = subtotal;
     }
 
-    public double getDescuento() {
+    public BigDecimal getDescuento() {
         return descuento;
     }
 
-    public void setDescuento(double descuento) {
+    public void setDescuento(BigDecimal descuento) {
         this.descuento = descuento;
     }
 
-    public double getImpuestos() {
+    public BigDecimal getImpuestos() {
         return impuestos;
     }
 
-    public void setImpuestos(double impuestos) {
+    public void setImpuestos(BigDecimal impuestos) {
         this.impuestos = impuestos;
     }
 
-    public double getTotal() {return total;}
+    public BigDecimal getTotal() {return total;}
 
-    public void setTotal(double total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 

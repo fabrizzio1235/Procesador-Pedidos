@@ -5,13 +5,15 @@ package modelos;
     disponible.
  */
 
+import java.math.BigDecimal;
+
 public class Producto {
     private String nombre;
-    private double precio;
+    private BigDecimal precio;
     private int cantidadSolicitada;
     private int existencia;
 
-    public Producto(String nombre, double precio, int cantidad, int existencia) {
+    public Producto(String nombre, BigDecimal precio, int cantidad, int existencia) {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidadSolicitada = cantidad;
@@ -26,11 +28,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
+    public BigDecimal getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(BigDecimal precio) {
         this.precio = precio;
     }
 
